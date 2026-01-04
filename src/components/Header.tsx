@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Logo from './Logo';
 import { Button } from '@/components/ui/button';
-import { Menu, X, GraduationCap } from 'lucide-react';
+import { Menu, X, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const NavLink = ({
@@ -26,32 +26,42 @@ const Header = () => {
   };
 
   const navLinks = [
-    { href: "#hero", label: "Home" },
-    { href: "#about", label: "Classroom" },
     { href: "#features", label: "Features" },
-    { href: "#exams", label: "About" },
+    { href: "#about", label: "About" },
+    { href: "#pricing", label: "Pricing" },
+    { href: "#contact", label: "Contact Us" },
   ];
 
   return (
-    <header className="sticky top-[44px] z-50 w-full bg-gradient-to-r from-gray-900/95 via-purple-900/95 to-gray-900/95 backdrop-blur-md border-b border-purple-500/20">
-      <div className="container mx-auto flex h-16 items-center justify-between">
+    <header className="sticky top-0 z-50 w-full bg-slate-900/95 backdrop-blur-md border-b border-slate-700/50">
+      <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <Link to="/">
           <Logo />
         </Link>
         
-        <nav className="hidden md:flex items-center justify-center flex-1 space-x-12 text-sm">
-          {navLinks.map((link) => (
-            <NavLink key={link.label} href={link.href}>
-              {link.label}
-            </NavLink>
-          ))}
+        <nav className="hidden md:flex items-center justify-center flex-1">
+          <div className="flex items-center">
+            {navLinks.map((link, index) => (
+              <React.Fragment key={link.label}>
+                <NavLink href={link.href}>
+                  {link.label}
+                </NavLink>
+                {index < navLinks.length - 1 && (
+                  <span className="mx-6 text-slate-600">|</span>
+                )}
+              </React.Fragment>
+            ))}
+          </div>
         </nav>
         
-        <div className="hidden md:flex items-center">
+        <div className="hidden md:flex items-center gap-3">
+          <Button variant="outline" className="border-slate-600 text-white hover:bg-slate-800 font-medium px-6">
+            Sign In
+          </Button>
           <a href="#waitlist">
-            <Button className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-bold text-base gap-2">
-              <GraduationCap className="h-5 w-5" />
-              Join Classroom
+            <Button className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-bold gap-2 px-6">
+              <Sparkles className="h-4 w-4" />
+              Get Free Trial
             </Button>
           </a>
         </div>
@@ -64,17 +74,20 @@ const Header = () => {
       </div>
       
       {isMenuOpen && (
-        <div className="md:hidden border-t border-purple-500/10">
+        <div className="md:hidden border-t border-slate-700/50">
           <nav className="container mx-auto flex flex-col items-center gap-4 py-4">
             {navLinks.map((link) => (
               <NavLink key={link.label} href={link.href} onClick={toggleMenu}>
                 {link.label}
               </NavLink>
             ))}
-            <a href="#waitlist" onClick={toggleMenu}>
+            <Button variant="outline" className="border-slate-600 text-white hover:bg-slate-800 font-medium w-full max-w-xs">
+              Sign In
+            </Button>
+            <a href="#waitlist" onClick={toggleMenu} className="w-full max-w-xs">
               <Button className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-bold w-full gap-2">
-                <GraduationCap className="h-5 w-5" />
-                Join Classroom
+                <Sparkles className="h-4 w-4" />
+                Get Free Trial
               </Button>
             </a>
           </nav>
