@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
-import { ArrowRight, PlayCircle, Sparkles } from 'lucide-react';
+import { ArrowRight, GraduationCap, Sparkles } from 'lucide-react';
 import Autoplay from "embla-carousel-autoplay";
 const Hero = () => {
   const quotesWithImages = [{
@@ -143,9 +143,9 @@ const Hero = () => {
                 </Button>
               </a>
               <a href="#waitlist">
-                <Button size="lg" variant="outline" className="w-full sm:w-auto border-2 border-primary text-primary hover:bg-primary/20 font-semibold px-8 py-4 text-xl">
-                  ⭐ Join the Revolution
-                  <PlayCircle className="ml-2 h-6 w-6" />
+                <Button size="lg" variant="outline" className="w-full sm:w-auto border-2 border-primary text-primary hover:bg-primary/20 font-semibold px-8 py-4 text-xl gap-2">
+                  <GraduationCap className="h-6 w-6" />
+                  Join Classroom
                 </Button>
               </a>
             </div>

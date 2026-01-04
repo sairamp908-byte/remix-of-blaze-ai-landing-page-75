@@ -35,18 +35,17 @@ const Header = () => {
   return (
     <header className="sticky top-[44px] z-50 w-full bg-gradient-to-r from-gray-900/95 via-purple-900/95 to-gray-900/95 backdrop-blur-md border-b border-purple-500/20">
       <div className="container mx-auto flex h-16 items-center justify-between">
-        <div className="flex items-center gap-8">
-          <Link to="/">
-            <Logo />
-          </Link>
-          <nav className="hidden md:flex items-center space-x-8 text-sm">
-            {navLinks.map((link) => (
-              <NavLink key={link.label} href={link.href}>
-                {link.label}
-              </NavLink>
-            ))}
-          </nav>
-        </div>
+        <Link to="/">
+          <Logo />
+        </Link>
+        
+        <nav className="hidden md:flex items-center justify-center flex-1 space-x-12 text-sm">
+          {navLinks.map((link) => (
+            <NavLink key={link.label} href={link.href}>
+              {link.label}
+            </NavLink>
+          ))}
+        </nav>
         
         <div className="hidden md:flex items-center">
           <a href="#waitlist">
